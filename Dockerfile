@@ -6,6 +6,7 @@ RUN set -ex \
     && apt-get clean \
     && apt-get update -y \
     && apt-get install -y \
+        apt-utils \
         bash \
         openjdk-8-jre-headless \
         unzip
