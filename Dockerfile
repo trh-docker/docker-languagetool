@@ -1,6 +1,4 @@
-FROM debian:stretch
-
-MAINTAINER Silvio Fricke <silvio.fricke@gmail.com>
+FROM quay.io/spivegin/tlmbasedebian
 
 RUN set -ex \
     && mkdir -p /uploads /etc/apt/sources.list.d /var/cache/apt/archives/ \
@@ -25,4 +23,4 @@ RUN chmod a+x /start.sh
 RUN mkdir /nonexistent && touch /nonexistent/.languagetool.cfg
 
 CMD [ "/start.sh" ]
-EXPOSE 8010
+EXPOSE 8080
