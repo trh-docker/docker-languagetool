@@ -1,17 +1,12 @@
 FROM quay.io/spivegin/tlmbasedebian
 
-RUN && apt-get update -y \
-    && apt-get install -y \
+RUN apt-get update -y &&\
+    apt-get install -y \
         apt-utils \
         bash \
         unzip
-RUN set -ex \
-    && mkdir -p /uploads /etc/apt/sources.list.d /var/cache/apt/archives/ \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get clean \
-    && apt-get update -y \
-    && apt-get install -y \
-        openjdk-8-jre-headless 
+RUN apt install -y openjdk-8-jre-headless 
+
 ENV VERSION 4.6
 ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
 
